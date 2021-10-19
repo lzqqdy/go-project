@@ -23,3 +23,16 @@ $ cd $GOPATH/src/go-project
 
 $ go run main.go 
 ```
+## Features
+
+- [x] Gin
+- [x] Crontab
+- [x] RESTful API
+- [x] Gorm
+- [x] Redis
+- [x] logging
+- [x] App configurable
+- [ ] Middleware
+- [ ] Swagger
+- [ ] Jwt
+- [ ] Docker
