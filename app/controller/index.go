@@ -1,10 +1,12 @@
 package controller
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"go-project/app/logic"
 	"go-project/pkg/api"
 	"go-project/pkg/logger"
+	"go-project/pkg/redis"
 	"go-project/pkg/util"
 )
 
@@ -12,7 +14,12 @@ func Index(c *gin.Context) {
 	api.Success("SUCCESS").End(c)
 }
 func Ping(c *gin.Context) {
+	//日志测试
 	logger.Logger("app.index.ping").Error("pong")
+	//redis连接测试
+	key, _ := redis.Client.Get("test").Result()
+	fmt.Println(key)
+
 	api.Error("pong").End(c)
 }
 func GetTest(c *gin.Context) {

@@ -1,12 +1,16 @@
 # go-project
+
 基于Gin+Crontab的封装框架Demo
+
 ### Required
 
 - Mysql
 - Redis
+
 ### Ready
 
 Create a **Test database** and import SQL
+
 ```
 CREATE TABLE `test` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -17,12 +21,29 @@ CREATE TABLE `test` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
+
 ### Run
+
 ```
 $ cd $GOPATH/src/go-project
 
 $ go run main.go 
 ```
+
+### Docker Run
+
+```
+Install Docker
+https://docs.docker.com/engine/install/centos/
+
+Install Docker Compose
+https://docs.docker.com/compose/install/
+
+$ cd $GOPATH/src/go-project
+
+$ docker-compose up --build
+```
+
 ## Features
 
 - [x] Gin
@@ -32,7 +53,7 @@ $ go run main.go
 - [x] Redis
 - [x] logging
 - [x] App configurable
+- [x] Docker & Docker-compose
 - [ ] Middleware
 - [ ] Swagger
 - [ ] Jwt
-- [ ] Docker

@@ -10,8 +10,6 @@ import (
 	"go-project/pkg/redis"
 	"go-project/router"
 
-	//"go-project/pkg/huobi"
-
 	"github.com/spf13/pflag"
 )
 

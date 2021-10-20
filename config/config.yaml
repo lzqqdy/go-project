@@ -4,16 +4,16 @@ app:
 web:
   url:
 mysql:
-  host: 192.168.56.101
+  host: mysql
   port: 3306
-  username: my_test
-  password: 7h2kYWaJGrXzGLK4
-  dbname: my_test
+  username: root
+  password: 123456
+  dbname: test
   charset: utf8mb4
   MaxIdleConns: 10
   MaxOpenConns: 2
 redis:
-  host: 192.168.56.101
+  host: redis
   port: 6379
   auth:
   db: 0
