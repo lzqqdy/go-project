@@ -9,18 +9,19 @@ services:
       - mysql
     command: /bin/sh -c "go build main.go && ./main"
     volumes:
-      - /home/go-project/config:/gowork/config
-      - /home/go-project/log:/gowork/log
+      - ./config:/gowork/config
+      - ./log:/gowork/log
   mysql:
     image: "mysql:5.7"
     restart: always
     environment:
+      MYSQL_DATABASE: "test"
       MYSQL_ROOT_PASSWORD: "123456"
     ports:
       - "3310:3306"
     volumes:
       - /home/mysql/conf:/etc/mysql/conf.d
-      - /home/mysql/data:/var/lib/mysql
+#      - /home/mysql/data:/var/lib/mysql
   redis:
     image: "redis:latest"
     ports:
