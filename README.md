@@ -44,6 +44,37 @@ $ cd $GOPATH/src/go-project
 $ docker-compose up --build
 ```
 
+### Directory Structure
+
+```
+├── app
+│   ├── controller
+│   └── logic
+├── config
+├── crontab
+│   ├── crontab.go
+│   └── job
+├── models
+│   ├── models.go
+│ router
+│   └── route.go
+├── log
+├── pkg
+│   ├── api
+│   ├── config
+│   ├── http
+│   ├── logger
+│   ├── redis
+│   ├── timer
+│   └── util
+├── README.md
+├── docker-compose.yml
+├── Dockerfile
+├── go.mod
+├── go.sum
+└── main.go
+```
+
 ## Features
 
 - [x] Gin
