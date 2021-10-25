@@ -56,7 +56,7 @@ $ docker-compose up --build
 │   └── job
 ├── models
 │   ├── models.go
-│ router
+├── router
 │   └── route.go
 ├── log
 ├── pkg
