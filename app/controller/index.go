@@ -10,41 +10,52 @@ import (
 	"go-project/pkg/util"
 )
 
-func Index(c *gin.Context) {
-	api.Success("SUCCESS").End(c)
+func Index(g *gin.Context) {
+	api.Success("SUCCESS").End(g)
 }
-func Ping(c *gin.Context) {
+func Ping(g *gin.Context) {
 	//日志测试
 	logger.Logger("app.index.ping").Error("pong")
 	//redis连接测试
 	key, _ := redis.Client.Get("test").Result()
 	fmt.Println(key)
 
-	api.Error("pong").End(c)
+	api.Error("pong").End(g)
 }
-func GetTest(c *gin.Context) {
-	name := c.Query("name")
+
+//Test 参数验证
+type Test struct {
+	Name string `form:"name" binding:"required"`
+}
+
+func GetTest(g *gin.Context) {
+	name := g.Query("name")
+	var form Test
+	if err := g.ShouldBind(&form); err != nil {
+		api.Error(fmt.Sprint(err)).End(g)
+		return
+	}
 	state := -1
 	testLogic := logic.Test{
 		Name:     name,
 		State:    state,
-		PageNum:  util.GetPage(c),
+		PageNum:  util.GetPage(g),
 		PageSize: 10,
 	}
 
 	test, err := testLogic.GetAll()
 	if err != nil {
-		api.Error("error").End(c)
+		api.Error("error").End(g)
 		return
 	}
 
 	count, err := testLogic.Count()
 	if err != nil {
-		api.Error("error").End(c)
+		api.Error("error").End(g)
 		return
 	}
 	api.Success(map[string]interface{}{
 		"lists": test,
 		"total": count,
-	}).End(c)
+	}).End(g)
 }

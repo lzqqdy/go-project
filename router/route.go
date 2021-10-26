@@ -1,6 +1,7 @@
 package router
 
 import (
+	"go-project/app/middleware"
 	"net/http"
 
 	"go-project/app/controller"
@@ -17,8 +18,13 @@ func Load(g *gin.Engine) *gin.Engine {
 
 	g.GET("/", controller.Index)
 	g.GET("/ping", controller.Ping)
-	//...
-	g.GET("/getTest", controller.GetTest)
 
+	g.GET("/getTest", controller.GetTest)
+	//中间件Token验证
+	g.Use(middleware.Token())
+	{
+		g.GET("/test", controller.GetTest)
+	}
+	//...
 	return g
 }

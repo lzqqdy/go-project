@@ -85,6 +85,6 @@ $ docker-compose up --build
 - [x] logging
 - [x] App configurable
 - [x] Docker & Docker-compose
-- [ ] Middleware
+- [x] Middleware
 - [ ] Swagger
 - [ ] Jwt
