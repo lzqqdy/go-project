@@ -26,6 +26,8 @@ es:
 mongodb:
   host: mongodb://127.0.0.1
   port: 27017
+  user: admin
+  password: 123456
 log:
   level: info
   file_format: "%Y%m%d"
@@ -37,5 +39,3 @@ rtmp:
   host:
   port:
   nickname:
-juhe:
-  key:
