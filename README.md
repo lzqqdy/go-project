@@ -86,5 +86,7 @@ $ docker-compose up --build
 - [x] App configurable
 - [x] Docker & Docker-compose
 - [x] Middleware
+- [x] Elasticsearch
+- [x] MongDB
 - [ ] Swagger
 - [ ] Jwt

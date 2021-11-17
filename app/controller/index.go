@@ -16,10 +16,13 @@ func Index(g *gin.Context) {
 func Ping(g *gin.Context) {
 	//日志测试
 	logger.Logger("app.index.ping").Error("pong")
-	//redis连接测试
+	//redis测试
 	key, _ := redis.Client.Get("test").Result()
 	fmt.Println(key)
-
+	//ES测试
+	logic.TestEs()
+	//MongoDB测试
+	logic.TestMongoDB()
 	api.Error("pong").End(g)
 }
 

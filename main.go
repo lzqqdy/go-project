@@ -6,7 +6,9 @@ import (
 	"go-project/crontab"
 	"go-project/models"
 	"go-project/pkg/config"
+	"go-project/pkg/es"
 	"go-project/pkg/logger"
+	"go-project/pkg/mongodb"
 	"go-project/pkg/redis"
 	"go-project/router"
 
@@ -21,6 +23,8 @@ func init() {
 	models.InitMysql()
 	redis.InitRedis()
 	logger.Initiate()
+	es.InitEs()
+	mongodb.InitMongodb()
 }
 
 func main() {

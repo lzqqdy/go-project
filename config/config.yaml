@@ -18,6 +18,14 @@ redis:
   auth:
   db: 0
   poolsize: 10
+es:
+  host: http://127.0.0.1
+  port: 9200
+  user:
+  password:
+mongodb:
+  host: mongodb://127.0.0.1
+  port: 27017
 log:
   level: info
   file_format: "%Y%m%d"
