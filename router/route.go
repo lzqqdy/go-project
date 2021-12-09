@@ -1,12 +1,16 @@
 package router
 
 import (
-	"go-project/app/middleware"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"go-project/app/middleware"
 
 	"go-project/app/controller"
 
-	"github.com/gin-gonic/gin"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
+	_ "go-project/docs"
 )
 
 func Load(g *gin.Engine) *gin.Engine {
@@ -15,8 +19,8 @@ func Load(g *gin.Engine) *gin.Engine {
 	g.NoRoute(func(c *gin.Context) {
 		c.String(http.StatusNotFound, "404 not found")
 	})
-
 	g.GET("/", controller.Index)
+	g.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	g.GET("/ping", controller.Ping)
 
 	g.GET("/getTest", controller.GetTest)

@@ -54,6 +54,7 @@ $ docker-compose up --build
 ├── crontab
 │   ├── crontab.go
 │   └── job
+├── docs
 ├── models
 │   ├── models.go
 ├── router
@@ -88,5 +89,5 @@ $ docker-compose up --build
 - [x] Middleware
 - [x] Elasticsearch
 - [x] MongDB
-- [ ] Swagger
-- [ ] Jwt
+- [x] Swagger
+- [x] Jwt

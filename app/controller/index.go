@@ -31,6 +31,16 @@ type Test struct {
 	Name string `form:"name" binding:"required"`
 }
 
+// @Tags 测试接口
+// @Summary 基础数据测试
+// @Description test表分页查询
+// @Param token	header string true "token"
+// @Accept  json
+// @Product json
+// @Param   name     query    string    true      "名称"
+// @Param   page     query    string    false     "当前页数"
+// @Success 200 {object} string	"{"code": 200, "message": "", "data": [...]}"
+// @Router /test [get]
 func GetTest(g *gin.Context) {
 	name := g.Query("name")
 	var form Test

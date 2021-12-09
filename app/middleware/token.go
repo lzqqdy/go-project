@@ -11,7 +11,7 @@ func Token() gin.HandlerFunc {
 		var data interface{}
 
 		code = 200
-		token := c.Query("token")
+		token := c.GetHeader("token")
 		if token == "" {
 			code = 400
 			data = "TOKEN NOT FOUND"
