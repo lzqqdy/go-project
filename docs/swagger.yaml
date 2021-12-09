@@ -1,0 +1,41 @@
+basePath: /
+info:
+  contact: {}
+  description: This is a sample Server pets
+  title: Swagger Example API
+  version: 0.0.1
+paths:
+  /test:
+    get:
+      consumes:
+      - application/json
+      description: test表分页查询
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      - description: 名称
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: 当前页数
+        in: query
+        name: page
+        type: string
+      responses:
+        "200":
+          description: '{"code": 200, "message": "", "data": [...]}'
+          schema:
+            type: string
+      summary: 基础数据测试
+      tags:
+      - 测试接口
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: go-project
+    type: apiKey
+swagger: "2.0"
