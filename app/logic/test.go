@@ -7,9 +7,16 @@ import (
 	"go-project/pkg/es"
 	"go-project/pkg/logger"
 	"go-project/pkg/mongodb"
+	"go-project/pkg/mq"
+	"go-project/pkg/redis"
+	"log"
+	"math/rand"
+	"time"
+
+	"github.com/spf13/viper"
+
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
-	"time"
 )
 
 type Test struct {
@@ -101,4 +108,16 @@ func TestMongoDB() {
 
 	docId := result.InsertedID.(primitive.ObjectID)
 	fmt.Println("自增ID:", docId.Hex())
+}
+func TestMqPublish() {
+	subject := viper.GetString("mq.subject")
+	value := map[string]interface{}{
+		"whatHappened": string("ticket received"),
+		"ticketID":     int(rand.Intn(100000000)),
+		"ticketData":   string("some ticket data"),
+	}
+	err := mq.PublishTicketReceivedEvent(redis.Client, subject, value)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

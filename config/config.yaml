@@ -39,3 +39,7 @@ rtmp:
   host:
   port:
   nickname:
+mq:
+  status: false
+  subject: tickets
+  consumersGroup: tickets-consumer-group

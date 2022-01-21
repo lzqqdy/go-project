@@ -2,12 +2,13 @@ package controller
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"go-project/app/logic"
 	"go-project/pkg/api"
 	"go-project/pkg/logger"
 	"go-project/pkg/redis"
 	"go-project/pkg/util"
+
+	"github.com/gin-gonic/gin"
 )
 
 func Index(g *gin.Context) {
@@ -23,6 +24,8 @@ func Ping(g *gin.Context) {
 	logic.TestEs()
 	//MongoDB测试
 	logic.TestMongoDB()
+	//测试MQ
+	logic.TestMqPublish()
 	api.Error("pong").End(g)
 }
 

@@ -1,16 +1,18 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/spf13/viper"
 	"go-project/crontab"
 	"go-project/models"
 	"go-project/pkg/config"
 	"go-project/pkg/es"
 	"go-project/pkg/logger"
 	"go-project/pkg/mongodb"
+	"go-project/pkg/mq"
 	"go-project/pkg/redis"
 	"go-project/router"
+
+	"github.com/gin-gonic/gin"
+	"github.com/spf13/viper"
 
 	"github.com/spf13/pflag"
 )
@@ -35,10 +37,10 @@ func init() {
 // @name go-project
 // @BasePath /
 func main() {
-
 	//定时任务
 	crontab.Timer()
-
+	//消息队列
+	mq.InitMq()
 	// gin
 	gin.SetMode(viper.GetString("app.mode"))
 	r := gin.New()

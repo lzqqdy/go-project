@@ -7,14 +7,14 @@ import (
 
 var Client *elastic.Client
 
-func InitEs() (err error) {
+func InitEs() {
 	host := viper.GetString("es.host")
 	port := viper.GetString("es.port")
 	user := viper.GetString("es.user")
 	password := viper.GetString("es.password")
 	esUrl := host + ":" + port
 	//TODO
-	Client, err = elastic.NewClient(
+	Client, err := elastic.NewClient(
 		elastic.SetSniff(false),
 		elastic.SetURL(esUrl),
 		elastic.SetBasicAuth(user, password),

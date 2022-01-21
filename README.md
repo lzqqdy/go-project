@@ -91,3 +91,4 @@ $ docker-compose up --build
 - [x] MongDB
 - [x] Swagger
 - [x] Jwt
+- [x] Redis Stream MQ
