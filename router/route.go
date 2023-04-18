@@ -1,11 +1,10 @@
 package router
 
 import (
+	"go-project/app/middleware"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"go-project/app/middleware"
-
 	"go-project/app/controller"
 
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -24,6 +23,8 @@ func Load(g *gin.Engine) *gin.Engine {
 	g.GET("/ping", controller.Ping)
 
 	g.GET("/getTest", controller.GetTest)
+	// Websocket服务，路由ws://localhost:8000/ws/xxx，xxx对应Handlers中方法定位到不同路由
+	g.GET("/ws/:business", controller.Websocket)
 	//中间件Token验证
 	g.Use(middleware.Token())
 	{

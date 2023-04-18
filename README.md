@@ -92,3 +92,4 @@ $ docker-compose up --build
 - [x] Swagger
 - [x] Jwt
 - [x] Redis Stream MQ
+- [x] WebSocket
